@@ -1,0 +1,27 @@
+opcion = 0
+while opcion != 4:
+    print("\n--- MENÚ ---")
+    print("1. Saludar")
+    print("2. Convetir decimal a maya ")
+    print("3. Mostrar mensaje")
+    print("4. Salir")
+    
+num = int(input("ingrese un numero"))
+
+while num >0 :
+    residuo=num%20
+    num=num//20
+    
+    if residio == 0:
+        print("0")
+    else:
+        barras = residuo //5
+        puntos = residuo %5
+    
+    while barras>0:
+        print("__")
+        barras -=1
+        
+    while punto >0:
+        print(".")
+        puntos -=1
