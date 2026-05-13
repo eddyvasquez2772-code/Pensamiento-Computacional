@@ -1,0 +1,89 @@
+Mini Proyecto 13 / 05 / 2026
+
+import tkinter as tk
+from tkinter import messagebox
+
+# Datos
+dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
+
+niveles_azucar = [130, 160, 95, 175, 160]
+niveles_sal = [2000, 2400, 1800, 2400, 2700]
+
+presion_sis = [115, 130, 110, 125, 175]
+presion_dias = [70, 75, 65, 70, 95]
+
+
+# Funcion para mostrar reporte
+def mostrar_reporte():
+
+    resultado.delete("1.0", tk.END)
+
+    resultado.insert(tk.END, "==== REPORTE DE SALUD ====\n\n")
+
+    for i in range(len(dias)):
+
+        resultado.insert(tk.END, "Dia: " + dias[i] + "\n")
+
+        resultado.insert(tk.END, "Azucar: " + str(niveles_azucar[i]) + " mg/dL\n")
+        resultado.insert(tk.END, "Sal: " + str(niveles_sal[i]) + " mg\n")
+        resultado.insert(tk.END, "Presion: " + str(presion_sis[i]) + "/" + str(presion_dias[i]) + " mmHg\n")
+
+        # Azucar
+        if niveles_azucar[i] >= 70 and niveles_azucar[i] <= 140:
+            resultado.insert(tk.END, "Azucar normal\n")
+        else:
+            resultado.insert(tk.END, "Alerta: azucar alta\n")
+
+        # Sal
+        if niveles_sal[i] <= 2300:
+            resultado.insert(tk.END, "Consumo de sal normal\n")
+        else:
+            resultado.insert(tk.END, "Alerta: mucha sal\n")
+
+        # Presion
+        if presion_sis[i] < 120 and presion_dias[i] < 80:
+            resultado.insert(tk.END, "Presion: Normal\n")
+
+        elif presion_sis[i] >= 120 and presion_sis[i] <= 129 and presion_dias[i] < 80:
+            resultado.insert(tk.END, "Presion: Elevada\n")
+
+        elif (presion_sis[i] >= 130 and presion_sis[i] <= 139) or (presion_dias[i] >= 80 and presion_dias[i] <= 89):
+            resultado.insert(tk.END, "Presion: Hipertension Etapa 1\n")
+
+        elif presion_sis[i] >= 140 or presion_dias[i] >= 90:
+            resultado.insert(tk.END, "Presion: Hipertension Etapa 2\n")
+
+        resultado.insert(tk.END, "-------------------------\n")
+
+    # Promedios
+    prom_azucar = sum(niveles_azucar) / len(niveles_azucar)
+    prom_sal = sum(niveles_sal) / len(niveles_sal)
+    prom_sis = sum(presion_sis) / len(presion_sis)
+    prom_dias = sum(presion_dias) / len(presion_dias)
+
+    resultado.insert(tk.END, "\n==== PROMEDIOS ====\n")
+    resultado.insert(tk.END, "Promedio azucar: " + str(prom_azucar) + "\n")
+    resultado.insert(tk.END, "Promedio sal: " + str(prom_sal) + "\n")
+    resultado.insert(tk.END, "Promedio sistolica: " + str(prom_sis) + "\n")
+    resultado.insert(tk.END, "Promedio diastolica: " + str(prom_dias) + "\n")
+
+
+# Crear ventana
+ventana = tk.Tk()
+ventana.title("Mini Proyecto Salud")
+ventana.geometry("600x500")
+
+# Titulo
+titulo = tk.Label(ventana, text="Sistema de Salud", font=("Arial", 16))
+titulo.pack(pady=10)
+
+# Boton
+boton = tk.Button(ventana, text="Mostrar Reporte", command=mostrar_reporte)
+boton.pack(pady=10)
+
+# Caja de texto
+resultado = tk.Text(ventana, width=70, height=25)
+resultado.pack(pady=10)
+
+# Ejecutar ventana
+ventana.mainloop()
