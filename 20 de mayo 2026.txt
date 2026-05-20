@@ -1,0 +1,64 @@
+20 de mayo 2026
+Link: https://www.programiz.com/online-compiler/5cfzGBv1ug1Gg
+
+código:
+¿Que son las duplas en python?
+las duplas (tambien llamadas duplas) son una estructura de datos que sirve guardar varios valores en una sola variable. Se escriben en parentesis y pueden almacenar numeros, textos y otros datos
+CARACTERISTICA DE LAS DUPLAS
+Son ordenadas 
+Permiten datos de diferentes tipos
+No se pueden modificar despues de crearlas 
+Se usan cuando los datos no deben cambiar
+
+EJEMPLO 1: 
+fruta= (manzana, pera, mandarina, fresa)
+print(fruta)
+
+EJEMPLO 2
+
+datos=("Eddy", 18, "Programacion")
+print("Nombre:", datos[0])
+print("Edad:", datos[1])
+
+EJEMPLO 3
+
+numeros = (10, 20, 30, 40)
+print("La dupla tiene:", len(numeros), "datos")
+
+
+¿QUE SOM LOS DICCIONARIOS?
+Los diccionarios son estructuras que guardan informacion en pares como Clave y Valos que se escriben en llaves
+CARACTERISTICAS DE LOS DICCIONARIOS:
+Guardan informacion organizada 
+Se pueden modificar
+Son utiles para representar datos de personas, productos, alumnos, etc
+Se accede a los valores usando al clave
+
+EJEMPLOS 1:
+persona = {
+    "nombre": "Luis",
+    "edad": 18,
+    "pais": "Guatemala"
+}
+print(persona)
+
+EJEMPLO 2
+alumno = {
+    "nombre": "Ana",
+    "carrera": "Ingenieria",
+    "semestre": 2
+}
+
+print("Nombre:", alumno["nombre"])
+print("Carrera:", alumno["carrera"])
+
+EJEMPLO 3
+
+producto = {
+    "nombre": "Laptop",
+    "precio": 3500,
+    "marca": "HP"
+}
+
+producto["precio"] = 4000
+print(producto)
